@@ -1,0 +1,137 @@
+# keflings_all_off.toml: renut.toml with: banjo_cpu_enhancements, banjo_noncpu_enhancements
+# Both enhancement groups off: the original paths everywhere (for comparison).
+# keflings-nx (A Kingdom for Keflings, title update 2: 0.0.3.2) - console config, 2026-10-30.
+# In sdmc:/switch/keflings-nx/ next to keflings-nx.nro, with the extracted game in game_root/ (default.xex, fsxb2/ and
+# the title update's default.xexp) and the update's own files in update/ (fsxb2/blockfiles/Title_Update.blk.bz2 and
+# the font blocks). Lines are cvars.
+#
+# Pixel-identical by default: nothing here changes the picture. The picture-changing options (SMAA, internal and
+# dynamic resolution) are off; configs/ has them for you to try (see NOTES-test.txt).
+
+# The renderer: reNut's Direct3D-level renderer on deko3d (the only renderer of this NRO; no Vulkan driver linked).
+banjo_renderer = "renut"
+renut_gpu_backend = "deko3d"
+renut_post_process_precision = "Game"
+
+# XBLA: the full game, not the trial.
+license_mask = 1
+
+# Title update 2 needs the avatar system to start: it initialises, and its queries fail cleanly (no avatar data);
+# the avatar giant ("You") is left out (keflings_avatar_giant).
+xam_avatars = true
+
+# Logs go to logs/rex/ next to the NRO. Please send them back after a test.
+log_level = "info"
+log_file_writer = true
+
+# Controls (sa2-nx's driver): face buttons by position as on the Xbox pad; L+R+ZR opens the controller screen.
+input_xbox_layout = true
+input_joycon_sideways = true
+switch_software_keyboard = true
+
+# Profiling: the SDK's sampler writes every thread's code addresses into logs/rex/rex_profile.log every 10 s (the
+# profile that picks the hot functions). The on-screen windows stay off.
+banjo_show_profiler = false
+banjo_show_fps = false
+banjo_stall_watch_seconds = 1
+switch_profile_stacks = true
+banjo_cpu_profiler = false
+
+# Frame pacing: the game does not pace itself (on the 360, Present waited for the display); the limiter releases a
+# frame per refresh at 60 Hz. "30" = a steady 30 fps (a frame every second refresh).
+frame_cap = "60"
+
+# Picture options you asked for (2026-10-31; NOT pixel-identical to the game):
+# docked at 1920x1080: the 3D image rendered at 1080 lines and the screen made at 1920x1080 (HUD and text too).
+# Handheld stays at 1280x720. With Reverse-NX set to docked, handheld counts as docked.
+banjo_renut_render_height_docked = 1080
+banjo_renut_display_height_docked = 1080
+# MSAA of the 3D image: 2 = 2x, the game's own (exact); 1 = none; 4 = 4x (smoother edges, more GPU time).
+keflings_renut_msaa_samples = 2
+
+# Performance enhancements (docs/banjo-nx/enhancements-reference.md): each active only when its own key AND its
+# group's master are on; the log's "[enhancements]" line says what ran. All of these are exact.
+banjo_cpu_enhancements = false
+banjo_noncpu_enhancements = false
+banjo_cpu_guest_cas_no_barrier = true
+kernel_critsec_pcr_owner = true
+thread_signal_skip_idle = true
+banjo_cpu_native_bulk = true
+banjo_hot_guard_calls = 0
+banjo_hot_guard_period = 0
+
+# Renderer (exact items banjo-nx ships).
+banjo_renut_alpha_to_mask_test = true
+banjo_renut_depth_words_stencil = true
+banjo_renut_half_pixel_offset = true
+banjo_renut_point_minmax_radius = true
+banjo_deko3d_draw_resolves = true
+banjo_gpu_depth_words_view = true
+banjo_deko3d_depth_compression = true
+banjo_deko3d_zcull = true
+banjo_deko3d_alpha_spec = true
+banjo_deko3d_tess_spec = true
+banjo_deko3d_vs_outputs = true
+banjo_deko3d_uam_prmt = true
+banjo_deko3d_uam_gvn = true
+banjo_deko3d_uam_uniform_branches = true
+banjo_deko3d_early_hoist = true
+banjo_renut_resolve_skip = true
+banjo_renut_depth_words_lazy = true
+banjo_deko3d_barrier_merge = true
+banjo_deko3d_barrier_lean = true
+banjo_deko3d_depth_handover = true
+banjo_deko3d_depth24 = true
+banjo_deko3d_push_constants = true
+banjo_deko3d_ring_cleaner = true
+banjo_deko3d_kick_submit = true
+banjo_late_input = true
+banjo_deko3d_latency_trim = false
+banjo_display_sync = true
+banjo_display_phase_auto = true
+banjo_display_phase_max_us = 12000
+banjo_deko3d_txq_constants = true
+banjo_deko3d_early_z = true
+banjo_deko3d_gpr32 = false
+banjo_deko3d_light_branch = false
+banjo_deko3d_eager_kicks = true
+banjo_deko3d_async_variants = true
+banjo_deko3d_uam_wide_rows = true
+banjo_renut_stall_present = false
+banjo_renut_device_swizzle = true
+banjo_renut_game_gamma = false
+banjo_renut_store_cards = true
+banjo_renut_cpu_memos = true
+banjo_renut_pipeline_memo = true
+banjo_renut_host_mips = false
+banjo_renut_textures_reserve_mb = 384
+banjo_renut_stream_cache_mb = 128
+banjo_renut_clear_repeat = true
+banjo_deko3d_provisional_count = true
+banjo_renut_literals_resident = true
+banjo_renut_host_packets = false
+# Measured SLOWER ON THE CONSOLE in banjo-nx: off (porting-guide-renderer.md section 6b).
+banjo_renut_replay_lookahead = false
+banjo_renut_texture_slot_skip = false
+banjo_renut_shadow_sort = false
+banjo_renut_replay_record_prefetch = false
+# keflings-nx's renderer fix: vertex inputs the declaration lacks read (0, 0, 0, 1) (the models need it).
+keflings_renut_missing_input_w1 = true
+
+# The Achievement dialog's picture (and the game's other picture boxes): a console user's profile picture instead of
+# a white square. keflings_user_picture_user = which user, in the HOME Menu's order (1 = the first user, 2 the
+# second, ...; a number past the last user takes the first).
+keflings_user_picture = true
+keflings_user_picture_user = 1
+
+# Picture-changing options: OFF (your decision; configs/keflings_smaa.toml, configs/keflings_dynamic_res.toml).
+banjo_renut_smaa = false
+banjo_renut_dynamic_resolution = false
+
+# The GPU report every 10 s (GPU time per pass, per shader) for the console log.
+renut_gpu_profile = 10.0
+banjo_renut_diag_gpu_shaders = true
+
+# Three cores (the console's usual grant for a game; keflings-nx has no four-core mode).
+banjo_system_core = 0
+banjo_forwarder_program_id = ""

@@ -1,0 +1,69 @@
+# keflings-nx - ReXGlue codegen configuration for A Kingdom for Keflings (title 584108DB, XBLA), title update 2.
+# Started from banjo-nx's renut_config.toml (2026-10-30). The build targets keep banjo-nx's internal name "renut"
+# (renut, renut_recomp, renut_codegen) so its CMake, tools and post-codegen passes work unchanged.
+#
+# The game is built with XDK 2.0.7645 (every static library of default.xex), the XDK of Banjo-Kazooie: Nuts & Bolts'
+# base game, so the D3D / XAudio / CRT library code is Banjo base's (docs/keflings-notes.md, "XDK").
+
+includes = [
+"config/renut_funcs.toml",
+"config/renut_hooks.toml",
+]
+
+# config/renut_crt.toml is deliberately NOT included (as in banjo-nx): it swaps the guest heap and CRT for the SDK's
+# native rexcrt implementations.
+
+# banjo-nx's optimised codegen options (from sa2-nx's codegen_flavor.toml; masseffect-nx measured the set on the
+# console). They only change how the C++ is written; the guest-visible result is the same. See banjo-nx's
+# app/renut_config.toml (docs/banjo-nx/codegen-enhancements.md) for each option's history and measurements.
+cr_as_local = true
+ctr_as_local = true
+xer_as_local = true
+reserved_as_local = true
+skip_msr = true
+dform_disp_split = true
+fctiwz_inline = true
+# fctid / fctiw / fctidz as helpers: also a correction for the Switch (simde's portable path rounds halves away from
+# zero; the 360 rounds to even).
+fcti_inline = true
+# dcbt / dcbtst as host prefetches of RA + RB (CMake BANJO_GEN_DCBT_PREFETCH=OFF compiles them to nothing).
+dcbt_prefetch = true
+rotate_word_shifts = true
+fp_compares_modeless = true
+fp_mode_lookahead = true
+fp_mode_lookahead_past_branch = true
+fp_copy_pairs = true
+fp_copy_forwarding = true
+div_inline = true
+fp_moves_modeless = true
+# The three options that need per-function audits on this game's code, ON since 2026-10-30 18:45 (keflings-nx; the
+# user: all of banjo-nx's codegen options). The audits (docs/keflings-notes.md, "Codegen options"):
+#   - (title update 2, 2026-10-30 evening: the audit again on TU2's code, 84 kept; the base game's figures below)
+#   - tools/non_argument_audit.py on code generated without non_argument_as_local: ENTRY 262 (the save/restore
+#     helpers, kept by name, and the functions that read r12 / r11 on entry), RET 35 (callers reading r11 after
+#     sub_822CAF30): every sub_ of both lists, callees too, kept in ctx below (banjo-nx's rule); checked after
+#     generating with the option (--with-option: no HANDOVER).
+#   - tools/read_before_write.py on code generated with non_volatile_as_local: [functions] share_registers in
+#     config/renut_funcs.toml.
+non_volatile_as_local = false  # 2026-10-30 19:16: OFF: with it (b15, b16) the game hangs at boot after the D3D device is made (open)
+elide_lr_stores = true
+non_argument_as_local = true
+non_argument_as_local_keep = [
+    0x8215CF30, 0x821CEEA8, 0x821D37A4, 0x821D37CC, 0x821D3A98, 0x821D3AC0, 0x821D4358, 0x821D4378,
+    0x822CAF30, 0x822E3C38, 0x822F4B28, 0x8230B248, 0x82318B04, 0x8233A358, 0x82341B98, 0x82343FA8,
+    0x823446D0, 0x823463B8, 0x82347400, 0x82349A90, 0x8235A710, 0x8235CD08, 0x82365840, 0x823679C0,
+    0x82367D70, 0x8236D548, 0x823707B0, 0x82371850, 0x82371E58, 0x82373970, 0x82373BA0, 0x82373E90,
+    0x82374BC8, 0x82375BF8, 0x82376590, 0x823766B8, 0x82383A88, 0x823A4868, 0x823A5490, 0x823A6350,
+    0x823A6780, 0x823AAB20, 0x823ACB10, 0x823DE5C0, 0x8241984C, 0x824198C4, 0x82419984, 0x82445CF0,
+    0x82445D1C, 0x82445E24, 0x82445E44, 0x82446000, 0x82446020, 0x82446194, 0x824461B4, 0x82446898,
+    0x824468B8, 0x82446E20, 0x82447EA0, 0x82447EC0, 0x8244A410, 0x8244AD24, 0x8244C238, 0x8244C258,
+    0x8244C5A0, 0x8244F2BC, 0x8244F2DC, 0x8244F4A0, 0x8244F4C0, 0x82450670, 0x82450690, 0x82451F8C,
+    0x82451FAC, 0x82455290, 0x824552BC, 0x8245593C, 0x8245595C, 0x82455D90, 0x82455DB0, 0x824562F0,
+    0x82457150, 0x82457170, 0x82457760, 0x82457820,
+]
+
+project_name = "renut"
+file_path = "assets/default.xex"
+out_directory_path = "generated"
+
+[functions]

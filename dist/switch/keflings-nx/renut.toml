@@ -1,0 +1,44 @@
+# keflings-nx (A Kingdom for Keflings) 1.0.0 - your options. Next to keflings-nx.nro in sdmc:/switch/keflings-nx/;
+# keflings-nx writes this file there when it is missing. Everything else is built into the NRO.
+
+# Language: en, ja, de, fr, es, it, ko or zh (Chinese). Empty = the console's system language (English when the game
+# does not have it).
+keflings_language = ""
+
+# Controls.
+# Face buttons by position, as on an Xbox pad (the bottom button acts as A); false = by letter.
+input_xbox_layout = true
+# Single Joy-Cons held sideways, one per player.
+input_joycon_sideways = true
+# The single Joy-Con's stick turned for the sideways grip.
+input_joycon_sideways_stick = true
+
+# MSAA of the 3D image: 2 = 2x, the game's own; 1 = none; 4 = 4x (smoother edges, more GPU time).
+keflings_renut_msaa_samples = 2
+
+# Player icon: the Achievement dialog's picture is a console user's profile picture. keflings_user_picture_user = which
+# user, in the HOME Menu's order (1 = the first user, 2 the second, ...). false = the white square of before.
+keflings_user_picture = true
+keflings_user_picture_user = 1
+
+# Button mapping: the Switch buttons that press each Xbox button, for player 1 ([input_p2] for player 2). Each is a
+# list such as "B, ZR" of: A B X Y L R ZL ZR PLUS MINUS LSTICK RSTICK UP DOWN LEFT RIGHT SL SR, or NONE. Empty = the
+# default (the layout above for A / B / X / Y; for the rest, the button in the same place).
+# Keep this section last: any line below [input_p1] belongs to it.
+[input_p1]
+a = ""
+b = ""
+x = ""
+y = ""
+lb = ""
+rb = ""
+lt = ""
+rt = ""
+start = ""
+back = ""
+ls = ""
+rs = ""
+up = ""
+down = ""
+left = ""
+right = ""

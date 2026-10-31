@@ -1,0 +1,33 @@
+# keflings-nx: guest functions with a HAND-WRITTEN native (app/src/cpu/hot/banjo_hand_natives.h, namespace
+# banjo::hand::n_<id>). tools/localize_native.py puts each in front of the generated copy of its function wherever
+# that copy is used (docs/banjo-nx/enhancements.md, "Hand-written natives").
+#
+#   <address or generated name> [id=<namespace suffix>] [exact=<registers>]
+#
+# exact: registers the original writes that the native leaves exactly as the original does. Every other register the
+# original writes is scratch the native does not reproduce: the guard skips it for every hook whose copy contains it.
+#
+# banjo-nx's natives of XDK library code that Keflings links unchanged (relocation-exact matches of Banjo base's
+# functions, docs/keflings-notes.md "Hot functions"); measured on the console in banjo-nx (keys banjo_hand_memcpy,
+# banjo_hand_memset, banjo_hand_state_flush).
+82448F40 exact=r3   # C runtime memcpy (Banjo base 82BB4510)
+82449470            # C runtime memset (Banjo base 82BB4A40)
+821ED780 exact=r1,r3   # Direct3D state flush: dirty register words into type-0 packets (Banjo base 8222CB90)
+#
+# keflings-nx's own (2026-10-30, from the PC profile's top 5; key keflings_hand_glyph_width).
+820BC7A8 exact=r3   # a font's advance width of one character (code-table search, scale * size * width + 0.5)
+# second round (2026-10-30; keys keflings_hand_wcscmp, _glyph_index, _nth_by_id, _record_sum, _sphere_frustum).
+82447298 exact=r3   # C runtime wcscmp (UTF-16)
+820BCB70 exact=r3   # a font's glyph index of one character
+82180D78 exact=r3   # index of the n-th list element with a given id
+820CC0E0 exact=r3   # sum of a word over 88-byte records
+820D9A48 exact=r3   # sphere against the six planes of a frustum
+# third round (2026-10-31, the console profile of package d; keys keflings_hand_pair_test, _sphere_merge, _box_merge,
+# _matrix_multiply, _matrix_multiply_vmx, _track_step, _box_frustum).
+8214A1D0 exact=r3   # collision pair test: flag, group-id and sphere exits; touching spheres run the copy
+82149560            # bounding sphere merge: no merge or a copy of the other sphere; a real merge runs the copy
+82149B08            # bounding box merge (min / max of an object's box or centre)
+8213AA78            # scalar 4x4 matrix product
+821FCD50            # VMX128 4x4 matrix product
+820C96C0 exact=r3   # animation track time step
+820BF340 exact=r3   # box against six planes

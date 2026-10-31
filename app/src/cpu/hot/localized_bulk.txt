@@ -1,0 +1,351 @@
+# keflings-nx (2026-10-30): the bulk list: every other game function with samples in the PC profile's top lists (all threads;
+# tools/localize_native.py leaves out tiny leaves, refused forms and app-mentioned addresses and says which). <address> <what>.
+820DB9F8 PC profile 0.8% (666 samples)
+8212A450 PC profile 0.7% (575 samples)
+82447298 PC profile 0.6% (485 samples)
+820C6648 PC profile 0.5% (438 samples)
+820BF340 PC profile 0.5% (419 samples)
+82192A68 PC profile 0.4% (358 samples)
+821FCD50 PC profile 0.4% (350 samples)
+820C3F40 PC profile 0.4% (349 samples)
+820C3D58 PC profile 0.4% (331 samples)
+820C7100 PC profile 0.3% (292 samples)
+82401388 PC profile 0.3% (288 samples)
+8212B320 PC profile 0.3% (287 samples)
+821FCED0 PC profile 0.3% (240 samples)
+82409650 PC profile 0.3% (222 samples)
+820D4C00 PC profile 0.3% (221 samples)
+8212B208 PC profile 0.2% (214 samples)
+8213A408 PC profile 0.2% (206 samples)
+820BCB70 PC profile 0.2% (192 samples)
+82180D78 PC profile 0.2% (169 samples)
+820CC638 PC profile 0.2% (167 samples)
+820C32D8 PC profile 0.2% (152 samples)
+820CE0A0 PC profile 0.2% (152 samples)
+8212B108 PC profile 0.2% (151 samples)
+820D9A48 PC profile 0.2% (131 samples)
+821DF9B8 PC profile 0.2% (130 samples)
+820BE3C0 PC profile 0.1% (123 samples)
+820CE900 PC profile 0.1% (123 samples)
+820C49D0 PC profile 0.1% (111 samples)
+824093E8 PC profile 0.1% (107 samples)
+820CC0E0 PC profile 0.1% (99 samples)
+820C4170 PC profile 0.1% (94 samples)
+820C3CA0 PC profile 0.1% (92 samples)
+82130BB8 PC profile 0.1% (80 samples)
+820DFB30 PC profile 0.1% (74 samples)
+824014A8 PC profile 0.1% (73 samples)
+820E0968 PC profile 0.1% (61 samples)
+82407530 PC profile 0.1% (60 samples)
+8212E790 PC profile 0.1% (50 samples)
+820C65F8 PC profile 0.1% (47 samples)
+820C3228 PC profile 0.1% (47 samples)
+823F6638 PC profile 0.0% (37 samples)
+820C6F08 PC profile 0.0% (37 samples)
+821330D0 PC profile 0.0% (34 samples)
+820BAFD0 PC profile 0.0% (33 samples)
+820DC0F0 PC profile 0.0% (30 samples)
+821FDBF0 PC profile 0.0% (30 samples)
+82412810 PC profile 0.0% (26 samples)
+8218E440 PC profile 0.0% (20 samples)
+8240E960 PC profile 0.0% (19 samples)
+8240A160 PC profile 0.0% (16 samples)
+820C82B8 PC profile 0.0% (15 samples)
+820C4990 PC profile 0.0% (15 samples)
+823FC450 PC profile 0.0% (15 samples)
+82406498 PC profile 0.0% (15 samples)
+823FA710 PC profile 0.0% (14 samples)
+820CB188 PC profile 0.0% (13 samples)
+823FBAE8 PC profile 0.0% (12 samples)
+823FA480 PC profile 0.0% (12 samples)
+8240E648 PC profile 0.0% (12 samples)
+823F7D90 PC profile 0.0% (11 samples)
+823F5E80 PC profile 0.0% (9 samples)
+823F9048 PC profile 0.0% (9 samples)
+82417208 PC profile 0.0% (8 samples)
+823FBEA8 PC profile 0.0% (7 samples)
+82420398 PC profile 0.0% (7 samples)
+823F68D8 PC profile 0.0% (6 samples)
+823F8590 PC profile 0.0% (6 samples)
+824172E0 PC profile 0.0% (6 samples)
+82408AD0 PC profile 0.0% (6 samples)
+823F86E0 PC profile 0.0% (4 samples)
+823FCC90 PC profile 0.0% (4 samples)
+823F7BB8 PC profile 0.0% (3 samples)
+823F7CA0 PC profile 0.0% (3 samples)
+823F84C8 PC profile 0.0% (3 samples)
+823F7D00 PC profile 0.0% (3 samples)
+823F8430 PC profile 0.0% (2 samples)
+823F60A8 PC profile 0.0% (1 samples)
+823F7C38 PC profile 0.0% (1 samples)
+823F7F48 PC profile 0.0% (1 samples)
+823F9F20 PC profile 0.0% (1 samples)
+82408118 PC profile 0.0% (1 samples)
+823F6F58 PC profile 0.0% (1 samples)
+823F8128 PC profile 0.0% (1 samples)
+823F9028 PC profile 0.0% (1 samples)
+823F67F0 PC profile 0.0% (1 samples)
+823FA838 PC profile 0.0% (1 samples)
+
+# keflings-nx (2026-10-30, 18:25): 142 more from the ARM profile of emulator run r5 (NRO 3, the shipped toml,
+# 600 s of boot, menus and the first kingdom; tools/switch_hot_bulk.py --min-samples 1).
+820CFB88 522 console samples, 266 instructions, 3 direct callees
+8214A1D0 301 console samples, 302 instructions, 5 direct callees
+82386A10 250 console samples, 104 instructions, 0 direct callees
+8213AA78 250 console samples, 40 instructions, 0 direct callees
+822CA050 220 console samples, 2 instructions, 1 direct callees
+823E0090 213 console samples, 614 instructions, 7 direct callees
+822C9EF8 182 console samples, 86 instructions, 3 direct callees
+82149B08 98 console samples, 74 instructions, 0 direct callees
+822033D0 96 console samples, 428 instructions, 0 direct callees
+820DEDC8 88 console samples, 52 instructions, 1 direct callees
+820A5378 87 console samples, 52 instructions, 0 direct callees
+822CD248 86 console samples, 802 instructions, 2 direct callees
+823DF7A0 76 console samples, 42 instructions, 0 direct callees
+8241D320 63 console samples, 86 instructions, 0 direct callees
+820CAEB0 63 console samples, 34 instructions, 1 direct callees
+820C3C38 52 console samples, 26 instructions, 2 direct callees
+820C6898 50 console samples, 122 instructions, 10 direct callees
+8212A908 48 console samples, 28 instructions, 5 direct callees
+820C3AC0 47 console samples, 94 instructions, 7 direct callees
+820DDF60 46 console samples, 710 instructions, 12 direct callees
+8217BC10 45 console samples, 260 instructions, 6 direct callees
+8212A0E8 41 console samples, 54 instructions, 3 direct callees
+82445310 39 console samples, 56 instructions, 0 direct callees
+8217EAA8 36 console samples, 166 instructions, 6 direct callees
+82149560 36 console samples, 150 instructions, 2 direct callees
+822BBDE0 35 console samples, 28 instructions, 3 direct callees
+8212B020 35 console samples, 58 instructions, 1 direct callees
+8217C910 34 console samples, 54 instructions, 3 direct callees
+820DDD48 33 console samples, 5 instructions, 1 direct callees
+82136AF8 32 console samples, 44 instructions, 0 direct callees
+8212A978 31 console samples, 62 instructions, 1 direct callees
+82237D70 29 console samples, 640 instructions, 7 direct callees
+8217D148 29 console samples, 376 instructions, 12 direct callees
+820DDB88 29 console samples, 22 instructions, 0 direct callees
+822BC020 28 console samples, 32 instructions, 3 direct callees
+822BCEB8 26 console samples, 38 instructions, 4 direct callees
+821497B8 25 console samples, 212 instructions, 3 direct callees
+823868C8 24 console samples, 2 instructions, 1 direct callees
+823866B0 24 console samples, 134 instructions, 0 direct callees
+8217BB50 24 console samples, 48 instructions, 5 direct callees
+8212AA70 24 console samples, 340 instructions, 8 direct callees
+820DB720 21 console samples, 28 instructions, 0 direct callees
+8214B028 21 console samples, 86 instructions, 5 direct callees
+82179B20 21 console samples, 44 instructions, 3 direct callees
+823DF848 18 console samples, 56 instructions, 0 direct callees
+820C5D08 18 console samples, 52 instructions, 4 direct callees
+8241F230 18 console samples, 14 instructions, 0 direct callees
+820C5DD8 17 console samples, 64 instructions, 4 direct callees
+820DDBE0 16 console samples, 28 instructions, 0 direct callees
+82447060 15 console samples, 2 instructions, 1 direct callees
+822378E0 15 console samples, 292 instructions, 4 direct callees
+8241F268 15 console samples, 22 instructions, 0 direct callees
+82149C30 15 console samples, 276 instructions, 8 direct callees
+820C2FB0 15 console samples, 24 instructions, 2 direct callees
+82145CA8 14 console samples, 30 instructions, 4 direct callees
+82386BB0 12 console samples, 2 instructions, 1 direct callees
+820C7078 12 console samples, 4 instructions, 0 direct callees
+8213A588 12 console samples, 82 instructions, 4 direct callees
+820C3CF0 12 console samples, 26 instructions, 0 direct callees
+820A55A8 11 console samples, 88 instructions, 3 direct callees
+820DB6B0 11 console samples, 28 instructions, 0 direct callees
+823F9138 9 console samples, 20 instructions, 0 direct callees
+820DB5A0 9 console samples, 19 instructions, 1 direct callees
+821335E0 9 console samples, 30 instructions, 0 direct callees
+821FE088 9 console samples, 66 instructions, 0 direct callees
+820DB640 9 console samples, 28 instructions, 0 direct callees
+820D5078 9 console samples, 72 instructions, 4 direct callees
+820CCAE0 8 console samples, 122 instructions, 5 direct callees
+820DC1F8 8 console samples, 16 instructions, 2 direct callees
+82138258 7 console samples, 60 instructions, 4 direct callees
+820DB5F0 7 console samples, 19 instructions, 1 direct callees
+823E1AE0 6 console samples, 24 instructions, 5 direct callees
+821FE1D0 6 console samples, 48 instructions, 4 direct callees
+8241EA10 6 console samples, 328 instructions, 12 direct callees
+823BADB0 6 console samples, 362 instructions, 8 direct callees
+823DFC00 6 console samples, 292 instructions, 4 direct callees
+820DB790 6 console samples, 4 instructions, 1 direct callees
+82405B78 6 console samples, 86 instructions, 7 direct callees
+82447340 6 console samples, 54 instructions, 0 direct callees
+820D51C0 6 console samples, 64 instructions, 9 direct callees
+820D51A8 6 console samples, 6 instructions, 0 direct callees
+820A5448 6 console samples, 88 instructions, 6 direct callees
+824453F0 6 console samples, 56 instructions, 0 direct callees
+823F5AD8 6 console samples, 30 instructions, 3 direct callees
+8241F0A0 6 console samples, 82 instructions, 11 direct callees
+82133480 5 console samples, 88 instructions, 4 direct callees
+820DB518 4 console samples, 4 instructions, 1 direct callees
+822CC6A8 3 console samples, 42 instructions, 0 direct callees
+824462C0 3 console samples, 58 instructions, 0 direct callees
+820A6140 3 console samples, 30 instructions, 2 direct callees
+82136BA8 3 console samples, 28 instructions, 1 direct callees
+82130C98 3 console samples, 58 instructions, 1 direct callees
+8214F7F0 3 console samples, 94 instructions, 4 direct callees
+82125CB8 3 console samples, 152 instructions, 1 direct callees
+82125F18 3 console samples, 268 instructions, 3 direct callees
+82239798 3 console samples, 6 instructions, 2 direct callees
+8214BC68 3 console samples, 40 instructions, 0 direct callees
+82138070 3 console samples, 24 instructions, 0 direct callees
+82239700 3 console samples, 32 instructions, 1 direct callees
+821413E0 3 console samples, 210 instructions, 10 direct callees
+8241D478 3 console samples, 302 instructions, 3 direct callees
+820D2D48 3 console samples, 58 instructions, 0 direct callees
+820D0C70 3 console samples, 22 instructions, 0 direct callees
+8213A970 3 console samples, 32 instructions, 0 direct callees
+8217E838 3 console samples, 82 instructions, 3 direct callees
+823FB8E8 3 console samples, 38 instructions, 3 direct callees
+820DD3B8 3 console samples, 38 instructions, 3 direct callees
+820BEF98 3 console samples, 208 instructions, 0 direct callees
+820DB7B0 3 console samples, 4 instructions, 1 direct callees
+820A7A98 3 console samples, 36 instructions, 1 direct callees
+820DB830 3 console samples, 4 instructions, 1 direct callees
+82171A00 3 console samples, 80 instructions, 1 direct callees
+820DEC80 3 console samples, 82 instructions, 7 direct callees
+823F5A60 3 console samples, 30 instructions, 3 direct callees
+820D4798 3 console samples, 84 instructions, 11 direct callees
+82446EA0 3 console samples, 62 instructions, 0 direct callees
+821CDA00 3 console samples, 16 instructions, 2 direct callees
+820D24E0 3 console samples, 344 instructions, 9 direct callees
+82117458 3 console samples, 6 instructions, 1 direct callees
+82133AA0 3 console samples, 82 instructions, 3 direct callees
+8212A088 3 console samples, 24 instructions, 4 direct callees
+820C0238 3 console samples, 98 instructions, 3 direct callees
+82116F88 3 console samples, 36 instructions, 0 direct callees
+820D44F8 3 console samples, 28 instructions, 2 direct callees
+821210D0 3 console samples, 62 instructions, 3 direct callees
+821205D0 3 console samples, 20 instructions, 0 direct callees
+820DBFF8 3 console samples, 14 instructions, 2 direct callees
+820CBFB0 3 console samples, 14 instructions, 0 direct callees
+820B9108 3 console samples, 34 instructions, 0 direct callees
+821FD9E0 3 console samples, 34 instructions, 0 direct callees
+82405A80 3 console samples, 62 instructions, 6 direct callees
+820DBF30 3 console samples, 14 instructions, 2 direct callees
+8244D0F0 2 console samples, 734 instructions, 15 direct callees
+8212E508 2 console samples, 36 instructions, 0 direct callees
+820A8380 2 console samples, 172 instructions, 2 direct callees
+8241E320 2 console samples, 444 instructions, 3 direct callees
+821600F0 2 console samples, 50 instructions, 0 direct callees
+82120DC0 2 console samples, 196 instructions, 6 direct callees
+8244CFC0 1 console samples, 38 instructions, 1 direct callees
+821782E0 1 console samples, 468 instructions, 11 direct callees
+
+# keflings-nx (2026-10-31): batch 2, from the console profile of package d (SD_CARD_keflings-nx logs, 2026-10-30, reports 5 on):
+# every function still in generated code with a sample, all threads (tools/switch_hot_bulk.py --min-samples 1).
+820D1028 747 console samples, 284 instructions, 4 direct callees
+820E1950 71 console samples, 402 instructions, 7 direct callees
+8214D730 66 console samples, 414 instructions, 4 direct callees
+820C6B88 21 console samples, 224 instructions, 2 direct callees
+8217B8F0 18 console samples, 152 instructions, 4 direct callees
+82385740 15 console samples, 414 instructions, 3 direct callees
+821368E8 12 console samples, 48 instructions, 3 direct callees
+8218DF78 11 console samples, 306 instructions, 10 direct callees
+8217F7C0 11 console samples, 22 instructions, 0 direct callees
+82128A78 10 console samples, 6 instructions, 0 direct callees
+820A80F8 9 console samples, 162 instructions, 3 direct callees
+82180CC0 9 console samples, 46 instructions, 3 direct callees
+82180B60 9 console samples, 10 instructions, 0 direct callees
+820A7D60 8 console samples, 230 instructions, 4 direct callees
+820B22C0 8 console samples, 342 instructions, 12 direct callees
+820A5708 6 console samples, 48 instructions, 4 direct callees
+822CFC40 6 console samples, 52 instructions, 2 direct callees
+8214D240 5 console samples, 316 instructions, 13 direct callees
+8241D930 5 console samples, 256 instructions, 5 direct callees
+82147018 5 console samples, 162 instructions, 7 direct callees
+8212AFC0 3 console samples, 24 instructions, 2 direct callees
+820C38B0 3 console samples, 132 instructions, 7 direct callees
+82158560 3 console samples, 74 instructions, 2 direct callees
+82123408 3 console samples, 40 instructions, 1 direct callees
+820D9B70 3 console samples, 8 instructions, 1 direct callees
+821E8CC0 3 console samples, 160 instructions, 10 direct callees
+82129C48 3 console samples, 54 instructions, 4 direct callees
+820DA318 3 console samples, 174 instructions, 15 direct callees
+82194B48 2 console samples, 242 instructions, 5 direct callees
+820D9150 2 console samples, 280 instructions, 5 direct callees
+82194950 2 console samples, 126 instructions, 6 direct callees
+820DB820 2 console samples, 4 instructions, 1 direct callees
+823FAA08 2 console samples, 4 instructions, 1 direct callees
+821289F0 2 console samples, 6 instructions, 0 direct callees
+820DA5D0 2 console samples, 318 instructions, 6 direct callees
+820D0CC8 2 console samples, 98 instructions, 7 direct callees
+8214EAF0 2 console samples, 198 instructions, 7 direct callees
+820CE830 2 console samples, 52 instructions, 5 direct callees
+820D4568 2 console samples, 140 instructions, 7 direct callees
+82192588 2 console samples, 130 instructions, 4 direct callees
+823F70D0 2 console samples, 70 instructions, 12 direct callees
+821306F8 2 console samples, 116 instructions, 2 direct callees
+8214A950 2 console samples, 174 instructions, 6 direct callees
+820F4E20 1 console samples, 52 instructions, 1 direct callees
+8214AC70 1 console samples, 12 instructions, 0 direct callees
+821873D0 1 console samples, 142 instructions, 5 direct callees
+820BB6E8 1 console samples, 142 instructions, 7 direct callees
+820E0AA0 1 console samples, 940 instructions, 6 direct callees
+820DBD98 1 console samples, 18 instructions, 2 direct callees
+821891A8 1 console samples, 76 instructions, 6 direct callees
+821308C8 1 console samples, 94 instructions, 1 direct callees
+82130D80 1 console samples, 56 instructions, 3 direct callees
+822CE568 1 console samples, 104 instructions, 7 direct callees
+822CFAD0 1 console samples, 50 instructions, 2 direct callees
+82386BB8 1 console samples, 80 instructions, 3 direct callees
+822CC9A0 1 console samples, 470 instructions, 10 direct callees
+8245B410 1 console samples, 72 instructions, 4 direct callees
+82420DB0 1 console samples, 196 instructions, 6 direct callees
+8218BE80 1 console samples, 184 instructions, 3 direct callees
+8217C6D8 1 console samples, 46 instructions, 3 direct callees
+820E25B0 1 console samples, 20 instructions, 0 direct callees
+8217FD58 1 console samples, 488 instructions, 9 direct callees
+82448A08 1 console samples, 4 instructions, 1 direct callees
+820E4F80 1 console samples, 178 instructions, 2 direct callees
+821F3E30 1 console samples, 42 instructions, 3 direct callees
+82124060 1 console samples, 58 instructions, 6 direct callees
+82165070 1 console samples, 6 instructions, 0 direct callees
+820D8F68 1 console samples, 122 instructions, 6 direct callees
+82195CA8 1 console samples, 196 instructions, 7 direct callees
+820E06E8 1 console samples, 50 instructions, 10 direct callees
+82131CC0 1 console samples, 28 instructions, 0 direct callees
+822CC750 1 console samples, 148 instructions, 2 direct callees
+82124208 1 console samples, 74 instructions, 3 direct callees
+820DB7D0 1 console samples, 16 instructions, 2 direct callees
+8241E1E0 1 console samples, 80 instructions, 4 direct callees
+8218A6A8 1 console samples, 26 instructions, 1 direct callees
+820B4B40 1 console samples, 108 instructions, 9 direct callees
+821179B0 1 console samples, 198 instructions, 9 direct callees
+820C6580 1 console samples, 10 instructions, 0 direct callees
+82140AC8 1 console samples, 40 instructions, 3 direct callees
+820CCDD8 1 console samples, 70 instructions, 0 direct callees
+8211ADC8 1 console samples, 98 instructions, 3 direct callees
+820CFFB0 1 console samples, 22 instructions, 2 direct callees
+823FABF0 1 console samples, 22 instructions, 2 direct callees
+820C4D00 1 console samples, 20 instructions, 0 direct callees
+82160C30 1 console samples, 842 instructions, 11 direct callees
+820C8020 1 console samples, 100 instructions, 6 direct callees
+820D9ED8 1 console samples, 52 instructions, 1 direct callees
+821234A8 1 console samples, 188 instructions, 5 direct callees
+820BCBD8 1 console samples, 84 instructions, 0 direct callees
+820BF2D8 1 console samples, 26 instructions, 0 direct callees
+82191FE0 1 console samples, 330 instructions, 4 direct callees
+8211C7E8 1 console samples, 40 instructions, 2 direct callees
+82175430 1 console samples, 198 instructions, 6 direct callees
+82126430 1 console samples, 76 instructions, 4 direct callees
+824451E8 1 console samples, 2 instructions, 1 direct callees
+820DC070 1 console samples, 14 instructions, 1 direct callees
+820E0180 1 console samples, 214 instructions, 6 direct callees
+821A3B90 1 console samples, 408 instructions, 9 direct callees
+82175308 1 console samples, 74 instructions, 1 direct callees
+820DB538 1 console samples, 26 instructions, 4 direct callees
+8211BD00 1 console samples, 102 instructions, 0 direct callees
+8212E9E0 1 console samples, 152 instructions, 5 direct callees
+82180968 1 console samples, 62 instructions, 0 direct callees
+821E89D0 1 console samples, 138 instructions, 13 direct callees
+820B9E70 1 console samples, 122 instructions, 0 direct callees
+820D65D0 1 console samples, 34 instructions, 0 direct callees
+82172200 1 console samples, 102 instructions, 2 direct callees
+820C10C8 1 console samples, 108 instructions, 5 direct callees
+82192790 1 console samples, 182 instructions, 3 direct callees
+8211FEB8 1 console samples, 36 instructions, 0 direct callees
+820BFEB8 1 console samples, 50 instructions, 0 direct callees
+82130E60 1 console samples, 466 instructions, 8 direct callees
+820D4F88 1 console samples, 60 instructions, 7 direct callees
+820E7A20 1 console samples, 388 instructions, 10 direct callees
+82124148 1 console samples, 48 instructions, 4 direct callees
+824213E8 1 console samples, 94 instructions, 11 direct callees

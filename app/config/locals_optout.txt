@@ -1,0 +1,1 @@
+# keflings-nx: <loop|leaf> <name> opt-outs from tools/locals_choice.py. Empty until it has run on this game's code.

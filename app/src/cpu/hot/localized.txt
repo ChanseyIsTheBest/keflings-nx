@@ -1,0 +1,27 @@
+# keflings-nx (2026-10-30): the hand-picked batch: the five hottest game functions of the PC profile (100 s of the first
+# kingdom with the sticks wandering; app/out/pc-nx/logs/pc_profile.log windows 3-7, main thread). Each line:
+#   <address> <what, with its share of the profile's busy samples>
+820BC7A8 PC profile 2.3% (2004 samples)
+820C7180 PC profile 1.3% (1076 samples)
+820BB278 PC profile 1.1% (929 samples)
+820C67C8 PC profile 0.9% (764 samples)
+# banjo-nx's hand-written natives (hand.txt): listed here so localize_native.py makes their copies (the reference and the fallback).
+82448F40 C runtime memcpy (hand native n_82448F40)
+82449470 C runtime memset (hand native n_82449470)
+821ED780 Direct3D state flush (hand native n_821ED780)
+# keflings-nx (2026-10-30, second round): the five functions of the new hand natives (a function of hand.txt is
+# skipped by the bulk list: its copy and the native in front of it come from this list).
+82447298 C runtime wcscmp (hand native n_82447298)
+820BCB70 font glyph index (hand native n_820BCB70)
+82180D78 n-th list element by id (hand native n_82180D78; ARM profile 0.48 % of the main thread)
+820CC0E0 sum over 88-byte records (hand native n_820CC0E0; ARM profile 0.57 % of the main thread)
+820D9A48 sphere against frustum (hand native n_820D9A48)
+# keflings-nx (2026-10-31): the third round's hand natives (hand.txt) need their own copies here (the bulk list leaves
+# out functions with a hand native).
+8214A1D0
+82149560
+82149B08
+8213AA78
+821FCD50
+820C96C0
+820BF340

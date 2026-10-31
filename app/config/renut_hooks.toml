@@ -1,0 +1,40 @@
+# keflings-nx: mid-asm hooks for A Kingdom for Keflings (title update 2; base game addresses moved 2026-10-30 evening). banjo-nx's game hooks (Banjo's vehicles,
+# menus, cheats, Klungo's arcade) have no counterpart in this game and are not carried over.
+
+# 2026-10-30: a screen's constructor (sub_821C99A0) reads the screen manager's current screen (*(0x82483AD8) + 124)
+# twice: the first read is checked for null, the second (lwz r3,124(r10) at 0x821C9A74) is not, and with no current
+# screen the next instructions call through a null vtable (seen twice on PC, lr 0x821AB45C in the base game, with a scripted A press
+# during a screen change). With r3 null this goes to the function's own return (0x821C9AB0: mr r3,r31), as the
+# first read's check does for its store. Every other call runs as before. src/keflings/keflings_game_fixes.cpp.
+[[midasm_hook]]
+address = 0x821C9A78
+name = "keflings_no_current_screen"
+registers = ["r3"]
+after_instruction = false
+jump_address_on_true = 0x821C9AB0
+
+# 2026-10-30 (evening): title update 2's giant "avatars" (STR_YOU "You", the player's Xbox avatar as the giant). Its
+# definition is made in code by the giant lookup sub_82158E80 the first time the name is asked for; with no avatar data
+# (this runtime: the XamAvatar* queries fail, xam_avatars) the avatar giant has no model, and choosing it calls a null
+# object (lr 0x8218F864). At 0x82158F74 r9 == 0 means the name asked for is "avatars": go to the lookup's exit
+# (0x821591E0) without making or registering it, so Choose your Giant offers the four giants of the base game.
+# src/keflings/keflings_game_fixes.cpp, key keflings_avatar_giant.
+[[midasm_hook]]
+address = 0x82158F74
+name = "keflings_skip_avatar_giant"
+registers = ["r9"]
+after_instruction = false
+jump_address_on_true = 0x821591E0
+
+# 2026-10-30 (evening, title update 2, emulator runs r8-r10): sub_8216E830 makes a game object through the factory
+# sub_8217CDC0 (kind 0..6; kind 0 "None" logs "Create an object of type 'None'???" and gives null) and then calls the
+# object's vtable without checking: a record with kind 0 (in the emulator ~37 s after boot, the front end; not seen in
+# the PC runs) called address 0. Its caller sub_82199540 already handles a null result. At 0x8216E8E4 (r27 = the new
+# object) a null object goes to the function's return (0x8216F20C: mr r3,r27, so it returns null).
+# src/keflings/keflings_game_fixes.cpp, key keflings_fix_null_object.
+[[midasm_hook]]
+address = 0x8216E8E4
+name = "keflings_null_object"
+registers = ["r27"]
+after_instruction = false
+jump_address_on_true = 0x8216F20C

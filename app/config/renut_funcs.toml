@@ -1,0 +1,110 @@
+# keflings-nx: function entries for A Kingdom for Keflings (title update 2). Each entry carries its evidence.
+# setjmp_address / longjmp_address: see docs/keflings-notes.md ("setjmp / longjmp").
+
+[functions]
+# Codegen g1 (2026-10-30) "target not in any function": both are reached only by C++ adjustor thunks
+# (addi r3,r3,-4 / +4; b target) in the vtable thunk runs at 0x823FB230.. and 0x82406338..
+#   0x82400B78: mr r11,r3; addi r10,r11,4; lwz r9,8(r11); addi r3,r9,1; stw r3,8(r11); blr (an AddRef), right after
+#               the thunk `addi r3,r3,-4; b 0x82401478` at 0x82400B70 (target of `b` at 0x823FB23C).
+#   0x82408280: addi r3,r3,4; b 0x82401A70 (a thunk itself), after the thunk at 0x82408278 (target of `b` at 0x82406354).
+0x82400B78 = {}
+0x82408280 = {}
+
+# Functions reached only through code pointers in data (vtables, callback tables): tools/kef_pointer_scan.py, pass 1
+# (2026-10-30, after PC run 4 stopped at a call to 0x820A94B8). Each line names one pointer to the function.
+0x820A6C10 = {}  # pointer at 0x82070D18
+0x820A7870 = {}  # pointer at 0x82070CB8
+0x820A79B0 = {}  # pointer at 0x82070CC4
+0x820A94A8 = {}  # pointer at 0x82071B70
+0x820A94B8 = {}  # pointer at 0x82071B94
+0x820AD7C8 = {}  # pointer at 0x820712A4
+0x820C0538 = {}  # pointer at 0x82071BE0
+0x820C0550 = {}  # pointer at 0x82071C10
+0x820C07D8 = {}  # pointer at 0x82071B6C
+0x820C22A8 = {}  # pointer at 0x82071F0C
+0x820C3128 = {}  # pointer at 0x82072BA0
+0x820C3318 = {}  # pointer at 0x82072C74
+0x820C4D00 = {}  # pointer at 0x82072C94
+0x820C5A30 = {}  # pointer at 0x82072F1C
+0x820C6648 = {}  # pointer at 0x82073150
+0x820DB528 = {}  # pointer at 0x82074F34
+0x820DB7A0 = {}  # pointer at 0x82074F58
+0x820DB7B0 = {}  # pointer at 0x82074F64
+0x820DB878 = {}  # pointer at 0x82074FA4
+0x820E3DD0 = {}  # pointer at 0x82075B84
+0x820E46E8 = {}  # pointer at 0x82075BC0
+0x820F33C8 = {}  # pointer at 0x82076AD0
+0x820F3EC0 = {}  # pointer at 0x82076C4C
+0x820FB8C0 = {}  # pointer at 0x82078038
+0x820FC810 = {}  # pointer at 0x82078370
+0x820FCEA8 = {}  # pointer at 0x8207839C
+0x821019B0 = {}  # pointer at 0x82078C84
+0x82105558 = {}  # pointer at 0x82079004
+0x8210D348 = {}  # pointer at 0x82079A50
+0x8210D368 = {}  # pointer at 0x82079A54
+0x82128820 = {}  # pointer at 0x8207B65C
+0x82128848 = {}  # pointer at 0x8207B6D0
+0x8213BF38 = {}  # pointer at 0x8207C0F8
+0x82140AA0 = {}  # pointer at 0x8207C824
+0x8214AD30 = {}  # pointer at 0x8207CC40
+0x8214AD40 = {}  # pointer at 0x8207CC44
+0x82165B50 = {}  # pointer at 0x8207DD04
+0x82180B88 = {}  # pointer at 0x8207F008
+0x821D4334 = {}  # pointer at 0x820889A0
+0x82249B40 = {}  # pointer at 0x8200EDF0
+0x82249C90 = {}  # pointer at 0x8200EFB4
+0x82249CB8 = {}  # pointer at 0x8200EFB8
+0x82249CE0 = {}  # pointer at 0x8200EFBC
+0x82249D08 = {}  # pointer at 0x8200EFC0
+0x8224A130 = {}  # pointer at 0x8200EFF4
+0x8224A150 = {}  # pointer at 0x8200EE08
+0x8229FC88 = {}  # pointer at 0x82033ECC
+0x8239E278 = {}  # pointer at 0x82042A70
+0x823E4EB0 = {}  # pointer at 0x82047E94
+0x823FC228 = {}  # pointer at 0x8204FCE8
+0x823FC270 = {}  # pointer at 0x8204FCDC
+0x82406338 = {}  # pointer at 0x82050F98
+0x82406348 = {}  # pointer at 0x82050FA0
+0x824073B8 = {}  # pointer at 0x82050F90
+0x82408638 = {}  # pointer at 0x82050FE0
+0x82408640 = {}  # pointer at 0x82051074
+0x82408648 = {}  # pointer at 0x820510B8
+0x82408660 = {}  # pointer at 0x820510A0
+0x82408678 = {}  # pointer at 0x82051070
+0x82408680 = {}  # pointer at 0x82050FAC
+0x82408688 = {}  # pointer at 0x820510A8
+
+# keflings-nx (2026-10-30, evening): title update 2 again (docs/keflings-notes.md, "Title update 2"): the entries
+# above are TU2's (this morning's codegen g1 and pointer scan, out/renut_funcs_tu2.toml). The marks below were made
+# for the base game and moved by tools/kef_base_to_tu2.py; they stay commented out (non_volatile_as_local is off).
+# keflings-nx (2026-10-30 18:50): share_registers from tools/read_before_write.py on code generated with
+# non_volatile_as_local (out/rbw_on1.toml): functions that read a non-volatile register on some path before writing it
+# (most in 0x822C0000-0x8236FFFF, a module whose functions pass values in r14-r31; several also read r11 after
+# sub_822CAF30). Left out: the three whose only such reads are cr fields (mfcr saves; cr_as_local was already on
+# in every build that ran) and sub_821CFF30 / sub_821D02C0 (xor r30,r30,r30: zeroing, not a read).
+# 0x822F0C78 = { share_registers = true }  # r22
+# 0x822F5DF8 = { share_registers = true }  # r29
+# 0x822F7CB0 = { share_registers = true }  # r30
+# 0x822FA228 = { share_registers = true }  # r30
+# 0x822FBDC8 = { share_registers = true }  # r24
+# 0x822FD158 = { share_registers = true }  # r14 r16 r24 r27 r30
+# 0x8230B248 = { share_registers = true }  # r18 r19
+# 0x823122A0 = { share_registers = true }  # r30
+# 0x82314010 = { share_registers = true }  # f26 f27 f28 f29 f30 r14 r21 r23 r24 r26
+# 0x82334478 = { share_registers = true }  # r22 r27
+# 0x82343FA8 = { share_registers = true }  # r30
+# 0x823446D0 = { share_registers = true }  # f30 f31 r14 r19 r20 r24 r26 r27 r29
+# 0x8234A9E8 = { share_registers = true }  # r24 r26
+# 0x8234D180 = { share_registers = true }  # r28 r29
+# 0x8235CD08 = { share_registers = true }  # r14 r16 r18
+# 0x82366BC8 = { share_registers = true }  # r24 r25 r26
+# 0x82371C18 = { share_registers = true }  # r29
+# 0x82372D28 = { share_registers = true }  # r21
+# 0x823751C0 = { share_registers = true }  # r31
+# 0x82376088 = { share_registers = true }  # r22
+# 0x823766B8 = { share_registers = true }  # r15 r16 r17 r18 r23 r24 r25 r27 r28
+# 0x8237FE48 = { share_registers = true }  # r23 r24 r25 r27 r29
+# 0x82380708 = { share_registers = true }  # r14 r15 r22 r24 r28 r29 r30
+# 0x82383A88 = { share_registers = true }  # r20 r22 r23 r24 r26 r29 r30 r31
+# 0x823B13B0 = { share_registers = true }  # r26
+# 0x823DE5C0 = { share_registers = true }  # r21 r22 r23 r24 r25

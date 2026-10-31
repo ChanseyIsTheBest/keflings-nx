@@ -1,0 +1,34 @@
+keflings-nx 1.0.0 (A Kingdom for Keflings) - 2026-10-31
+=====================================================
+
+A ReXGlue recompile of the Xbox 360 game A Kingdom for Keflings (XBLA, title 584108DB), title update 2 (0.0.3.2),
+with reNut's Direct3D-level renderer on deko3d, for the Switch. Release build: profile-guided and link-time optimised
+(PGO + LTO), every log off.
+
+SD card layout (sdmc:/switch/keflings-nx/)
+------------------------------------------
+  keflings-nx.nro         the program (icon, version 1.0.0, author ChanseyIsTheBest)
+  renut.toml              your options only (below); written by the program when it is missing
+  deko3d_glsl.bin         the game's shaders made from your game files (the installer makes it)
+  deko3d_shaders.bin      those shaders compiled for the Switch (the console compiles nothing)
+  pipeline_list.bin       the pipelines the game uses
+  game_root/              your game: default.xex, fsxb2/, and title update 2's default.xexp
+  update/                 title update 2's own files (fsxb2/blockfiles/Title_Update.blk.bz2 and three font blocks)
+  dlc/                    the Kingdom Pack packages (installed at the start)
+
+renut.toml
+----------
+  keflings_language            "" = the console's language; or en, ja, de, fr, es, it, ko, zh
+  input_xbox_layout            face buttons by position, as on an Xbox pad (true) or by letter (false)
+  input_joycon_sideways        single Joy-Cons held sideways, one per player
+  input_joycon_sideways_stick  the single Joy-Con's stick turned for the sideways grip
+  keflings_renut_msaa_samples  2 = the game's own 2x MSAA; 1 = none; 4 = 4x
+  keflings_user_picture        the Achievement dialog's picture is a console user's profile picture
+  keflings_user_picture_user   whose: 1 = the HOME Menu's first user, 2 the second, ...
+  [input_p1]                   button mapping (keep this section last in the file)
+
+Everything else is built in: 1280x720 handheld, 1920x1080 docked, 60 fps cap, three cores, no logging. Any other
+setting written in renut.toml still overrides the built-in one (for example frame_cap = "30" for a steady 30 fps, or
+log_to_file = true with log_level = "info" for a log in logs/); put such lines above [input_p1].
+
+Start keflings-nx.nro from the Homebrew Menu with a title takeover (hold R while starting a game).

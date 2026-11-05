@@ -341,3 +341,10 @@ kameo-nx's `docs/kameo-notes.md`, section "2 MB blocks"; this is what applies he
 - **What an emulator can't show.** Ryujinx has no loader, so the code move doesn't run there: only a self-test of the
   swap does. On a console the log should say `[code blocks] text ... now on a copy`; `left where it is` means it skipped
   itself. The path that puts the old copy back if the kernel refuses the new one has never run, on Kameo either.
+- **Built and run (2026-11-05).** Built with PGO + LTO, reusing 1.0.0's profile (`pgo/`, no new training): the changed
+  functions, `RexGmInit` and `CreateFileMappingHandle`, run once at the start and lose theirs. One Ryujinx run of the
+  release NRO, 240 s, with 1.0.0's shader files on the SD: `[window blocks] guest window at 0x6C7400000, on a 2 MB
+  boundary`, `[code blocks] no loader (an emulator), left where it is; swap self-test: passed`, the scripted input
+  reached the first kingdom, no crash. The code move itself has not run: the first console run is its first real test.
+  The release build logs nothing. To see these lines on a console, put `log_level = "info"`, `log_to_file = true` and
+  `log_file_writer = true` above `[input_p1]` in `renut.toml`.

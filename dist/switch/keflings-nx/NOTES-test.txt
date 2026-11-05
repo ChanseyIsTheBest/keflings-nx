@@ -1,4 +1,4 @@
-keflings-nx 1.0.0 (A Kingdom for Keflings) - 2026-10-31
+keflings-nx 1.0.1 (A Kingdom for Keflings) - 2026-11-05
 =====================================================
 
 A ReXGlue recompile of the Xbox 360 game A Kingdom for Keflings (XBLA, title 584108DB), title update 2 (0.0.3.2),
@@ -7,7 +7,7 @@ with reNut's Direct3D-level renderer on deko3d, for the Switch. Release build: p
 
 SD card layout (sdmc:/switch/keflings-nx/)
 ------------------------------------------
-  keflings-nx.nro         the program (icon, version 1.0.0, author ChanseyIsTheBest)
+  keflings-nx.nro         the program (icon, version 1.0.1, author ChanseyIsTheBest)
   renut.toml              your options only (below); written by the program when it is missing
   deko3d_glsl.bin         the game's shaders made from your game files (the installer makes it)
   deko3d_shaders.bin      those shaders compiled for the Switch (the console compiles nothing)

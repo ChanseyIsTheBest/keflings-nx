@@ -316,3 +316,28 @@ only in the intro (to 38 s). Needs a look at which thread clears that pointer.
 - **Pictures**: XamReadTileToTexture type 0 with tiles 1, 2, 3, ... (64 x 64) at the first kingdom: the achievement
   pictures, which the Achievement dialog shows. With the SDK's picture source (gamer_picture.h, from Bejeweled Blitz)
   they are the console user's picture (keflings/keflings_user_picture.cpp; the PC takes keflings_user_picture_file).
+
+## 2 MB blocks: game memory and the NRO's code (version 1.0.1, 2026-11-05, from kameo-nx and the Torchlight port's findings)
+
+The user asked for these two fixes, a 0.0.1 version bump and a release, through the Kameo session. The reasoning is in
+kameo-nx's `docs/kameo-notes.md`, section "2 MB blocks"; this is what applies here.
+
+- **Game memory.** `RexGmInit` had the same mistake: the second argument of `virtmemFindAslr` is a guard, not an
+  alignment, so the window was never on a 2 MB boundary and all game memory was on 4 KB pages, in every build including
+  1.0.0. It now asks for 2 MB more and rounds the base up. `banjo_window_blocks = false` goes back.
+- **The NRO's code.** `sdk/src/ui/switch_code_blocks.cpp` is Kameo's file with `renut.toml` for `kameo.toml`. In 1.0.0's
+  ELF the text is 26.0 MB and the read-only data 6.7 MB, so the move costs about 33 MB of memory. No shaders in the
+  read-only data here: the installer's files hold them. `banjo_code_blocks = false` in `renut.toml` goes back.
+- **Checked by reading, against Kameo's traps.** Exits: `windowed_app_main_switch.cpp` and `rex_app.cpp` end with
+  `__nx_applet_exit_mode = 1` and `__libnx_exit`; `exit()` (HalReturnToFirmware, the disc read error) ends in the atexit
+  hook's `diagAbortWithResult`. So nothing returns to hbloader. Threads: the first of ours is `switch_perf.cpp`'s profiler,
+  at constructor priority 102, after the move at 101. `runtime_switch.cpp` and `windowed_app_main_switch.cpp` are the same
+  as Kameo's. New functions are at the ends of their files, so the others keep their profile.
+- **`sdk/cmake/rex_version.cmake`** (Kameo's fix): the game's `v*` tags are no longer read as SDK versions. They stop the
+  configure in any clone that has fetched them, which includes a clean clone of the public repository.
+- **Not copied:** `banjo_tlb_test_s`, the latency test. It is diagnostics, and the first version of it was wrong.
+- **Not measured in this game.** The release note's "approximately 5%" is the user's wording, from Kameo's result (30.0
+  against 28.8 fps, about 4.3 %, standing still in one GPU-heavy spot at stock clocks).
+- **What an emulator can't show.** Ryujinx has no loader, so the code move doesn't run there: only a self-test of the
+  swap does. On a console the log should say `[code blocks] text ... now on a copy`; `left where it is` means it skipped
+  itself. The path that puts the old copy back if the kernel refuses the new one has never run, on Kameo either.

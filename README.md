@@ -63,6 +63,7 @@ not in this repository. Notes: `docs/`.
   base).
 - sa2-nx, nights-nx, peggle2-nx, bejeweledblitz-nx and the bejeweled3-nx / zuma ports (the built-in settings, the
   language setting, the controls, the gamer pictures, the frame pacing, the exit fix), NetherSX2_nx and battd_nx.
+- kameo-nx and the Torchlight port (game memory and the NRO's code on 2 MB blocks).
 
 GPL-3.0 where the sources are (LICENSE). A Kingdom for Keflings is NinjaBee's; this project is not affiliated with
 NinjaBee or Microsoft.

@@ -568,7 +568,7 @@ if(REXGLUE_PLATFORM_SWITCH)
     rexglue_switch_add_nro(renut
         NAME "A Kingdom for Keflings"
         AUTHOR "ChanseyIsTheBest"
-        VERSION "1.0.0"
+        VERSION "1.0.1"
         ${RENUT_ICON_ARG})
 
     # keflings-nx (2026-10-31, the user's request; sa2-nx's setup via bejeweledblitz-nx): the Switch build's fixed
